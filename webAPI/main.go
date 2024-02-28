@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"os"
 )
 
-// Recipe 構造体は以前と変わりません。
 type Recipe struct {
     ID          int      `json:"id"`
     Name        string   `json:"name"`
@@ -37,21 +38,47 @@ type RecipesContainer struct {
     Recipes []Recipe `json:"recipes"`
 }
 
-func main() {
-    file, err := os.ReadFile("./sample.json")
+var container RecipesContainer
+
+func init() {
+    file, err := ioutil.ReadFile("./sample.json")
     if err != nil {
         fmt.Println("Error reading file:", err)
-        return
+        os.Exit(1)
     }
 
-    var container RecipesContainer
     err = json.Unmarshal(file, &container)
     if err != nil {
         fmt.Println("Error decoding JSON:", err)
+        os.Exit(1)
+    }
+}
+
+func recipeHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "GET")
+    w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+    recipeName := r.URL.Query().Get("name")
+    if recipeName == "" {
+        http.Error(w, "Missing recipe name", http.StatusBadRequest)
         return
     }
 
     for _, recipe := range container.Recipes {
-        fmt.Println(recipe.Name)
+        if recipe.Name == recipeName {
+            w.Header().Set("Content-Type", "application/json")
+            json.NewEncoder(w).Encode(recipe)
+            return
+        }
     }
+
+    http.NotFound(w, r)
+}
+
+
+func main() {
+    http.HandleFunc("/recipe", recipeHandler)
+    fmt.Println("Server is running on port 8080")
+    http.ListenAndServe(":8080", nil)
 }

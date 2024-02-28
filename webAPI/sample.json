@@ -2,46 +2,74 @@
   "recipes": [
     {
       "id": 1,
-      "name": "fugiat",
-      "description": "Sint deserunt adipisicing cillum nostrud adipisicing mollit est ut excepteur cupidatat irure ex sint.",
-      "image": "http://placekitten.com/200/300",
-      "categories": ["和食"],
+      "name": "チキンカレー",
+      "description": "スパイシーなチキンカレーは、じっくりと煮込んだ鶏肉と野菜が特徴の本格的なカレー料理です。家庭で簡単に作れるレシピで、ご飯によく合います。",
+      "image": "./images/chicken_curry.jpg",
+      "categories": ["インド料理", "カレー"],
       "ingredients": [
         {
-          "name": "anim",
-          "amount": "1ml"
+          "name": "鶏もも肉",
+          "amount": "500g"
         },
         {
-          "name": "in",
-          "amount": "100g"
+          "name": "玉ねぎ",
+          "amount": "2個"
         },
         {
-          "name": "Lorem",
-          "amount": "1ml"
+          "name": "にんじん",
+          "amount": "1本"
+        },
+        {
+          "name": "じゃがいも",
+          "amount": "2個"
+        },
+        {
+          "name": "カレー粉",
+          "amount": "大さじ3"
+        },
+        {
+          "name": "トマト缶",
+          "amount": "1缶"
+        },
+        {
+          "name": "水",
+          "amount": "500ml"
+        },
+        {
+          "name": "サラダ油",
+          "amount": "大さじ2"
+        },
+        {
+          "name": "塩",
+          "amount": "適量"
+        },
+        {
+          "name": "砂糖",
+          "amount": "小さじ1"
         }
       ],
       "steps": [
-        "Eiusmod proident nisi aliquip Lorem id proident amet proident et laboris non mollit consectetur.",
-        "Cillum sint proident id duis labore amet laborum sunt enim nisi.",
-        "Consectetur officia qui consectetur ullamco.",
-        "Sint qui occaecat elit dolor eiusmod consectetur eu laborum culpa.",
-        "Incididunt enim ex commodo elit cupidatat incididunt mollit.",
-        "Est qui ex laborum occaecat.",
-        "Commodo officia laboris mollit enim labore ut nulla officia ullamco Lorem Lorem occaecat."
+        "鶏もも肉は一口大に切り、玉ねぎ、にんじん、じゃがいもは粗みじん切りにする。",
+        "鍋にサラダ油を熱し、玉ねぎを炒める。透明になったら、鶏肉を加えて炒める。",
+        "鶏肉に火が通ったら、にんじん、じゃがいもを加え、さらに炒める。",
+        "カレー粉を加えて全体になじませたら、水を加える。",
+        "トマト缶を加え、煮立ったら弱火にし、40分ほど煮込む。",
+        "塩、砂糖で味を調える。",
+        "ご飯にかけて完成。"
       ],
       "nutrition": {
-        "calories": "208kcal",
-        "protein": "13g",
-        "fat": "21g",
-        "carbohydrates": "60g"
+        "calories": "350kcal(1人前)",
+        "protein": "25g",
+        "fat": "15g",
+        "carbohydrates": "35g"
       },
       "difficulty": "中級者",
       "time": {
-        "prep": "30分",
-        "cook": "10分"
+        "prep": "20分",
+        "cook": "60分"
       },
-      "created_at": "2022-11-30",
-      "updated_at": "2021-08-01"
+      "created_at": "2023-01-01",
+      "updated_at": "2023-01-02"
     },
     {
       "id": 2,
